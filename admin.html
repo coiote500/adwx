@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DWX DEV | Dashboard Administrativo</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <style>
+      :root {
+        --sidebar-w: 260px;
+      }
+      body {
+        display: flex;
+        background: #050810;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      .admin-sidebar {
+        width: var(--sidebar-w);
+        background: rgba(16, 24, 40, 0.95);
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px;
+        backdrop-filter: blur(20px);
+        z-index: 10;
+      }
+      .admin-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 40px;
+        position: relative;
+      }
+      .admin-sidebar .logo { margin-bottom: 40px; text-align: center; }
+      .admin-sidebar .logo img { width: 120px; }
+      
+      .nav-menu { list-style: none; padding: 0; }
+      .nav-menu li { margin-bottom: 10px; }
+      .nav-menu a {
+        display: flex;
+        align-items: center;
+        padding: 12px 18px;
+        color: var(--muted);
+        text-decoration: none;
+        border-radius: 12px;
+        transition: 0.3s;
+        font-weight: 500;
+      }
+      .nav-menu a:hover, .nav-menu a.active {
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--primary);
+      }
+
+      .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+      .dashboard-header h1 { font-size: 28px; margin: 0; }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      .stat-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 24px;
+        border-radius: 18px;
+      }
+      .stat-card .label { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+      .stat-card .value { font-size: 32px; font-weight: 700; color: var(--primary); }
+
+      .admin-table-container {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+      .admin-table th {
+        background: rgba(255,255,255,0.03);
+        padding: 18px 24px;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .admin-table td {
+        padding: 18px 24px;
+        border-top: 1px solid var(--border);
+        font-size: 15px;
+      }
+      .admin-table tr:hover { background: rgba(255,255,255,0.01); }
+
+      .btn-sm { padding: 8px 16px; font-size: 13px; margin-right: 5px; cursor: pointer; border-radius: 8px; font-weight: 600; }
+      .btn-danger { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+      .btn-danger:hover { background: #ef4444; color: #fff; }
+
+      /* Form Modal */
+      #adminModal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 1000;
+        backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-card {
+        background: #0B0F1D;
+        width: 90%;
+        max-width: 700px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        padding: 40px;
+      }
+      .modal-card h2 { margin-top: 0; margin-bottom: 25px; }
+      .form-group { margin-bottom: 20px; }
+      .form-group label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 14px; }
+      .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: var(--text);
+        font-family: inherit;
+      }
+      .form-actions { display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px; }
+    </style>
+  </head>
+  <body>
+    <aside class="admin-sidebar">
+      <div class="logo">
+        <img src="/public/images/logo.svg" alt="DWX DEV" />
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#" onclick="showSection('projects')" id="menu-projects" class="active">Projetos</a></li>
+        <li><a href="#" onclick="showSection('contacts')" id="menu-contacts">Contatos</a></li>
+        <li><a href="/">Voltar ao Site</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-content">
+      <div id="section-projects">
+        <div class="dashboard-header">
+          <h1>Gestão de Projetos</h1>
+          <button class="project-btn btn-sm" onclick="openProjectModal()">+ Novo Projeto</button>
+        </div>
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Slug</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="projectsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="section-contacts" style="display:none;">
+        <div class="dashboard-header">
+          <h1>Mensagens de Clientes</h1>
+          <button class="project-btn btn-sm btn-danger" onclick="clearAllContacts()">Limpar Tudo</button>
+        </div>
+        <div id="contactsList" class="admin-table-container" style="padding: 20px;"></div>
+      </div>
+    </main>
+
+    <div id="adminModal">
+      <div class="modal-card">
+        <h2 id="modalTitle">Novo Projeto</h2>
+        <form id="projectForm">
+          <input type="hidden" id="formSlugOriginal" />
+          <div class="form-group">
+            <label>Título</label>
+            <input type="text" id="formTitle" required />
+          </div>
+          <div class="form-group">
+            <label>Subtítulo</label>
+            <input type="text" id="formSubtitle" />
+          </div>
+          <div class="form-group">
+            <label>Slug (URL)</label>
+            <input type="text" id="formSlug" required />
+          </div>
+          <div class="form-group">
+            <label>Descrição (Markdown/HTML)</label>
+            <textarea id="formDescription" rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Imagem URL</label>
+            <input type="text" id="formImg" />
+          </div>
+          <div class="form-group">
+            <label>Habilidades (separadas por vírgula)</label>
+            <input type="text" id="formTech" />
+          </div>
+          <div class="form-actions">
+            <button type="button" class="project-btn secondary btn-sm" onclick="closeModal()">Cancelar</button>
+            <button type="submit" class="project-btn btn-sm">Salvar Alterações</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const AUTH_KEY = "adminAuth";
+      if (!sessionStorage.getItem(AUTH_KEY)) {
+        const pass = prompt("Senha de Admin:");
+        if (pass !== "admin123") { window.location.href = "/"; }
+        else { sessionStorage.setItem(AUTH_KEY, "true"); }
+      }
+
+      let projects = [];
+
+      function showSection(name) {
+        document.getElementById('section-projects').style.display = name === 'projects' ? 'block' : 'none';
+        document.getElementById('section-contacts').style.display = name === 'contacts' ? 'block' : 'none';
+        document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
+        document.getElementById(`menu-${name}`).classList.add('active');
+        if(name === 'contacts') loadContacts();
+      }
+
+      async function api(path, options = {}) {
+        const res = await fetch(path, {
+          ...options,
+          headers: { 'Content-Type': 'application/json', ...options.headers }
+        });
+        return res.json();
+      }
+
+      async function loadProjects() {
+        projects = await api('/api/projects');
+        const tbody = document.getElementById('projectsTableBody');
+        tbody.innerHTML = '';
+        projects.forEach(p => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${p.title}</strong><br><small style="color:var(--muted)">${p.subtitle || ''}</small></td>
+            <td><code>${p.slug}</code></td>
+            <td>
+              <button class="project-btn btn-sm secondary" onclick="editProject('${p.slug}')">Editar</button>
+              <button class="project-btn btn-sm btn-danger" onclick="deleteProject('${p.slug}')">Excluir</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      async function loadContacts() {
+        const data = await api('/api/contacts');
+        const container = document.getElementById('contactsList');
+        if(!data.messages.length) { container.innerHTML = '<p>Nenhuma mensagem.</p>'; return; }
+        container.innerHTML = data.messages.reverse().map(raw => {
+          const parts = raw.split(' | ');
+          if(parts.length < 4) return '';
+          const [date, name, email, msg] = parts;
+          return `
+            <div style="padding:15px; border-bottom:1px solid var(--border)">
+              <strong>${name}</strong> (${email}) <span style="float:right; color:var(--muted); font-size:12px">${date}</span>
+              <p style="margin:8px 0 0; font-size:14px">${msg}</p>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function openProjectModal(slug = null) {
+        const modal = document.getElementById('adminModal');
+        const form = document.getElementById('projectForm');
+        form.reset();
+        
+        if (slug) {
+          const p = projects.find(it => it.slug === slug);
+          document.getElementById('modalTitle').textContent = "Editar Projeto";
+          document.getElementById('formSlugOriginal').value = p.slug;
+          document.getElementById('formTitle').value = p.title;
+          document.getElementById('formSubtitle').value = p.subtitle || '';
+          document.getElementById('formSlug').value = p.slug;
+          document.getElementById('formDescription').value = p.description;
+          document.getElementById('formImg').value = p.img || '';
+          document.getElementById('formTech').value = (p.tech || []).join(', ');
+        } else {
+          document.getElementById('modalTitle').textContent = "Novo Projeto";
+          document.getElementById('formSlugOriginal').value = '';
+        }
+        modal.style.display = 'flex';
+      }
+
+      function closeModal() { document.getElementById('adminModal').style.display = 'none'; }
+
+      document.getElementById('projectForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const originalSlug = document.getElementById('formSlugOriginal').value;
+        const body = {
+          title: document.getElementById('formTitle').value,
+          subtitle: document.getElementById('formSubtitle').value,
+          slug: document.getElementById('formSlug').value,
+          description: document.getElementById('formDescription').value,
+          img: document.getElementById('formImg').value,
+          tech: document.getElementById('formTech').value.split(',').map(s => s.trim()).filter(s => s)
+        };
+
+        if (originalSlug) {
+          await api(`/api/projects/${originalSlug}`, { method: 'PUT', body: JSON.stringify(body) });
+        } else {
+          await api('/api/projects', { method: 'POST', body: JSON.stringify(body) });
+        }
+        closeModal();
+        loadProjects();
+      };
+
+      async function deleteProject(slug) {
+        if(!confirm('Tem certeza?')) return;
+        await api(`/api/projects/${slug}`, { method: 'DELETE' });
+        loadProjects();
+      }
+
+      async function clearAllContacts() {
+        if(!confirm('Apagar histórico?')) return;
+        await api('/api/contacts', { method: 'DELETE' });
+        loadContacts();
+      }
+
+      window.editProject = openProjectModal;
+      loadProjects();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b16" />
+    <title>DWX DEV</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="description" content="DWX DEV - Desenvolvimento web moderno e inovador com foco em performance e UI/UX." />
+    <meta name="keywords" content="desenvolvimento, web, portfolio, ia, UI, UX, frontend, backend" />
+    <meta property="og:title" content="DWX DEV | Portfólio" />
+    <meta property="og:description" content="Desenvolvimento web inovador com as melhores tecnologias do mercado." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/style.css" />
+  </head>
+  <body>
+    <canvas id="bgCanvas"></canvas>
+    <header>
+      <nav>
+        <a href="#hero" class="logo" aria-label="DWX DEV">
+          <img src="/public/images/logo.svg" alt="DWX DEV" />
+        </a>
+        <ul>
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#projects">Projetos</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="hero">
+      <div class="hero-content">
+        <h1>DWX DEV</h1>
+        <p>Transformamos a operação da sua empresa através de softwares sob medida, automações e aplicativos inovadores.</p>
+        <button class="cta-btn">Fale Conosco</button>
+        <button id="chatBtn" class="cta-btn secondary">Tirar Dúvidas (IA)</button>
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600"
+        alt="Desenvolvimento"
+      />
+    </section>
+    
+    <section id="dev-process" class="blueprint-section">
+      <div class="blueprint-content">
+        <h2>Como o Software Ganha Vida?</h2>
+        <p>A engenharia de software transforma ideias abstratas em sistemas interativos e robustos. Entenda as etapas essenciais para a criação de soluções digitais de alto nível.</p>
+        
+        <div class="ai-steps">
+          <div class="ai-step">
+            <div class="step-icon">01</div>
+            <h3>Análise e Planejamento</h3>
+            <p>Tudo começa entendendo a regra de negócio. Arquitetos de software mapeiam os requisitos, escolhem a stack tecnológica ideal e desenham a infraestrutura necessária para suportar o projeto a longo prazo.</p>
+          </div>
+          <div class="ai-step">
+            <div class="step-icon">02</div>
+            <h3>Desenvolvimento (Código)</h3>
+            <p>Os desenvolvedores escrevem a lógica de programação. É aqui que algoritmos avançados, APIs seguras e interfaces responsivas são programadas linha a linha, transformando o planejamento em realidade funcional.</p>
+          </div>
+          <div class="ai-step">
+            <div class="step-icon">03</div>
+            <h3>Testes e Refinamento</h3>
+            <p>Antes de ir ao ar, o sistema passa por testes rigorosos de qualidade, segurança e performance. Ajustamos a Experiência do Usuário (UX) para garantir que tudo seja rápido, acessível e perfeitamente fluido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projetos</h2>
+      <div id="projectGrid" class="project-grid">
+        <!-- Projetos estáticos -->
+        <div class="project" data-slug="site-responsivo">
+          <img
+            src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900"
+            alt="Site Responsivo"
+          />
+          <h3>Site Responsivo</h3>
+          <p>Layout fluido que se adapta a qualquer tela.</p>
+          <div class="project-actions">
+            <button class="project-btn details-btn" data-slug="site-responsivo">
+              Ver detalhes
+            </button>
+          </div>
+        </div>
+        <div class="project" data-slug="app-mobile">
+          <img
+            src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=900"
+            alt="App Mobile"
+          />
+          <h3>App Mobile</h3>
+          <p>Interfaces intuitivas para uso móvel.</p>
+          <div class="project-actions">
+            <button class="project-btn details-btn" data-slug="app-mobile">
+              Ver detalhes
+            </button>
+          </div>
+        </div>
+        <div class="project" data-slug="ia-integrada">
+          <img
+            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900"
+            alt="IA Integrada"
+          />
+          <h3>IA Integrada</h3>
+          <p>Automação e personalização com inteligência artificial.</p>
+          <div class="project-actions">
+            <button class="project-btn details-btn" data-slug="ia-integrada">
+              Ver detalhes
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="company-section">
+      <div class="about-container">
+        <div class="company-info">
+          <h2>Nossa Missão</h2>
+          <p>
+            A <strong>DWX DEV</strong> nasceu para modernizar o mercado através da tecnologia. Nossa especialidade é o desenvolvimento de soluções robustas para empresas, com foco absoluto em desempenho, escalabilidade e valor de negócio.
+          </p>
+          <div class="services-list">
+            <div class="service-chip">Automação de Processos</div>
+            <div class="service-chip">Criação de Sistemas Web e Sites</div>
+            <div class="service-chip">Aplicativos Mobile (iOS/Android)</div>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-badge">CEO & Fundador</div>
+          <h3>Daniel Azevedo</h3>
+          <p class="founder-age">25 anos</p>
+          <p class="founder-bio">
+            Profissional qualificado com graduação em <strong>Gestão de Tecnologia da Informação (GTI)</strong> e <strong>Análise e Desenvolvimento de Sistemas (ADS)</strong>. Daniel lidera a visão técnica da DWX DEV e atua prestando soluções freelance de alta complexidade diretamente para negócios inovadores.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="arcade" class="blueprint-section">
+      <div class="arcade-content">
+        <h2>Pausa pro Café ☕</h2>
+        <p>Um pequeno clássico reconstruído puramente em HTML5 Canvas e JavaScript Vanilla.</p>
+        <div class="canvas-container">
+          <canvas id="pacmanCanvas"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Entre em Contato</h2>
+      <div class="contact-info">
+        <p class="contact-item">Email: <strong>danielwilson500@hotmail.com.br</strong></p>
+        <p class="contact-item">WhatsApp: <strong>+55 91 981121705</strong></p>
+      </div>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Sua Empresa / Nome" required />
+        <input type="email" id="email" placeholder="Email Comercial" required />
+        <textarea id="message" placeholder="Como podemos ayudar seu negócio?" required></textarea>
+        <button type="submit">Solicitar Orçamento</button>
+      </form>
+    </section>
+    <div id="projectModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modalBody">
+          <h2 id="modalTitle"></h2>
+          <img id="modalImg" alt="" />
+          <p id="modalSubtitle"></p>
+          <div id="modalDescription"></div>
+          <div id="modalTags"></div>
+          <ul id="modalFeatures"></ul>
+          <button id="modalNext" class="project-btn">Próximo Projeto</button>
+        </div>
+      </div>
+    </div>
+    <div id="chatModal" class="modal">
+      <div class="modal-content chat-modal">
+        <span class="close" id="chatClose">&times;</span>
+        <h2>Assistente IA</h2>
+        <div id="chatMessages" class="chat-messages"></div>
+        <div class="chat-input">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Digite sua mensagem..."
+          />
+          <button id="sendBtn" class="project-btn">Enviar</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2026 DWX DEV. Todos os direitos reservados.</p>
+      <p>Contato: Daniel Azevedo • (91) 98112-1705</p>
+    </footer>
+    <script type="module" src="/public/js/main.js"></script>
+  </body>
+</html>
