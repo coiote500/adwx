@@ -4,7 +4,7 @@ export function initParticles() {
   const ctx = bgCanvas.getContext("2d");
   
   let particles = [];
-  const particleCount = 120;
+  const particleCount = 80;
 
   const resize = () => {
     bgCanvas.width = window.innerWidth;
@@ -16,14 +16,14 @@ export function initParticles() {
   particles = Array.from({ length: particleCount }, () => ({
     x: Math.random() * bgCanvas.width,
     y: Math.random() * bgCanvas.height,
-    vx: (Math.random() - 0.5) * 0.35,
-    vy: (Math.random() - 0.5) * 0.35,
-    radius: 1 + Math.random() * 2,
-    alpha: 0.2 + Math.random() * 0.35,
+    vx: (Math.random() - 0.5) * 0.2,
+    vy: (Math.random() - 0.5) * 0.2,
+    radius: 0.5 + Math.random() * 1.5,
+    color: Math.random() > 0.5 ? '#8B5CF6' : '#EC4899',
+    alpha: 0.1 + Math.random() * 0.3,
   }));
 
   function drawParticles() {
-    if (!ctx) return;
     ctx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
 
     particles.forEach((p) => {
@@ -37,7 +37,8 @@ export function initParticles() {
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha})`; // Updated to new primary color
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
       ctx.fill();
     });
 

@@ -1,0 +1,76 @@
+{
+  "site": {
+    "name": "AURA DIGITAL",
+    "themeColor": "#050505"
+  },
+  "hero": {
+    "badge": "Agência de Performance #1",
+    "title": "Escalamos sua empresa com <span>Tráfego Digital</span> de Elite",
+    "description": "Não entregamos apenas métricas vaidosas. Entregamos lucro real através de estratégias agressivas de tráfego pago, SEO e automação de vendas.",
+    "cta_primary": "Quero Escalar Agora",
+    "cta_secondary": "Ver Nossos Resultados",
+    "trust_num_1": "10M+",
+    "trust_text_1": "Gerados para clientes",
+    "trust_num_2": "95%",
+    "trust_text_2": "Taxa de Retenção",
+    "main_img": "/public/images/marketing_hero_abstract_1775963913177.png",
+    "floating_roi": "4.8x",
+    "floating_leads": "+2.5k"
+  },
+  "services": [
+    {
+      "id": 1,
+      "icon": "fas fa-ad",
+      "title": "Tráfego Pago",
+      "description": "Gestão profissional em Google Ads e Meta Ads focada em ROAS positivo e escala sustentável.",
+      "features": ["Otimização Diária", "Públicos de Alta Conversão", "Segmentação de Elite"]
+    },
+    {
+      "id": 2,
+      "icon": "fas fa-rocket",
+      "title": "Funis de Vendas",
+      "description": "Criação de ecossistemas completos que transformam desconhecidos em clientes apaixonados.",
+      "features": ["Landing Pages de Alta Conversão", "Email Marketing & CRM", "Automação de WhatsApp"],
+      "featured": true
+    },
+    {
+      "id": 3,
+      "icon": "fas fa-search",
+      "title": "SEO & Branding",
+      "description": "Posicionamos sua marca no topo do Google e criamos uma autoridade inabalável no mercado.",
+      "features": ["SEO On-Page & Off-Page", "Estratégia de Conteúdo", "Identidade Visual Premium"]
+    }
+  ],
+  "statistics": [
+    { "id": 1, "target": 150, "suffix": "+", "label": "Empresas Escaladas" },
+    { "id": 2, "target": 12, "suffix": "M", "label": "Investidos em Ads" },
+    { "id": 3, "target": 450, "suffix": "k", "label": "Leads Gerados" }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "O faturamento da minha imobiliária triplicou em 4 meses após a implementação dos novos funis de tráfego pago. A atenção aos detalhes é fora de série.",
+      "author": "Ricardo Silveira",
+      "role": "CEO, RS Imóveis"
+    },
+    {
+      "id": 2,
+      "quote": "Finalmente uma agência que fala de lucro e não apenas de curtidas. A automação de vendas deles salvou nosso time de SDRs.",
+      "author": "Amanda Lima",
+      "role": "Founder, NextHealth"
+    }
+  ],
+  "faq": [
+    {
+      "id": 1,
+      "question": "Qual o investimento mínimo recomendado?",
+      "answer": "Recomendamos um investimento inicial a partir de R$ 2.000,00/mês em anúncios para que os dados sejam estatisticamente relevantes e a escala seja possível."
+    },
+    {
+      "id": 2,
+      "question": "Em quanto tempo vejo os primeiros resultados?",
+      "answer": "Campanhas de tráfego pago costumam gerar leads nas primeiras 48h. A otimização completa e escala de ROI geralmente ocorrem entre o 2º e 3º mês."
+    }
+  ],
+  "contacts": []
+}
