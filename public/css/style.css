@@ -105,6 +105,11 @@ nav {
     align-items: center;
 }
 
+.mobile-menu-btn {
+    display: none;
+    z-index: 1001;
+}
+
 .logo-text {
     font-size: 1.5rem;
     font-weight: 800;
@@ -1178,6 +1183,16 @@ hr {
         background: white;
         transition: 0.3s;
     }
+    
+    .mobile-menu-btn.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .mobile-menu-btn.open span:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-menu-btn.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
 
     /* Hero Section */
     .hero { padding-top: 120px; }
@@ -1187,12 +1202,14 @@ hr {
     .hero-btns { display: flex; flex-direction: column; align-items: stretch; gap: 1rem; }
     
     /* Layouts Gerais (Grades) */
-    .services-grid, .portfolio-grid, .stats-wrapper, .testimonial-grid {
+    .services-grid, .portfolio-grid, .testimonial-grid, .analysis-grid {
         grid-template-columns: 1fr;
+    }
+
+    .stats-wrapper {
         flex-direction: column;
     }
     
-    .analysis-grid { flex-direction: column; gap: 2rem; }
     .steps { grid-template-columns: 1fr; gap: 2rem; }
     .steps::after { display: none; }
     
@@ -1211,5 +1228,44 @@ hr {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1.2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+        word-break: break-word;
+    }
+    
+    .section-header h2, .method h2, .contact-info h2, .analysis-content h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-btns {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .floating-stats {
+        display: none;
+    }
+    
+    nav {
+        height: 70px;
+    }
+    
+    .marquee-content span {
+        font-size: 1.2rem;
     }
 }
