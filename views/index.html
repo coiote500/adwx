@@ -22,7 +22,19 @@
     <link rel="stylesheet" href="/public/css/style.css">
     
     <!-- Icons -->
-    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Anti-Scraping Blindagem -->
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        }
+    </script>
 </head>
 <body>
     <!-- Background Elements -->
@@ -32,7 +44,7 @@
 
     <!-- Header / Navigation -->
     <header>
-        <nav>
+        <nav class="container">
             <a href="#home" class="logo">
                 <span class="logo-text">AURA<span>DIGITAL</span></span>
             </a>
@@ -96,16 +108,17 @@
         <!-- Marquee / Logos -->
         <div class="marquee">
             <div class="marquee-content">
-                <span>GOOOGLE ADS</span>
-                <span>META ADS</span>
-                <span>SEO STRATEGY</span>
-                <span>COPYWRITING</span>
-                <span>SALES FUNNELS</span>
-                <span>TIKTOK ADS</span>
                 <span>GOOGLE ADS</span>
                 <span>META ADS</span>
-                <span>SEO STRATEGY</span>
+                <span>TRÁFEGO PAGO</span>
+                <span>SEO NACIONAL</span>
                 <span>COPYWRITING</span>
+                <span>FUNIL DE VENDAS</span>
+                <span>TIKTOK ADS</span>
+                <span>LANÇAMENTOS</span>
+                <span>AUTOMAÇÃO</span>
+                <span>ESCABILIDADE</span>
+                <span>ROI REAL</span>
             </div>
         </div>
 
@@ -181,20 +194,63 @@
             <div class="container">
                 <div class="stats-wrapper">
                     <div class="stat-item">
+                        <i class="fas fa-building stat-icon-bg"></i>
                         <h2 class="counter" id="dyn-stat1-val" data-target="150">0</h2><span id="dyn-stat1-suf">+</span>
                         <p id="dyn-stat1-lab">Empresas Escaladas</p>
                     </div>
                     <div class="stat-item">
+                        <i class="fas fa-chart-line stat-icon-bg"></i>
                         <h2 class="counter" id="dyn-stat2-val" data-target="12">0</h2><span id="dyn-stat2-suf">M</span>
                         <p id="dyn-stat2-lab">Investidos em Ads</p>
                     </div>
                     <div class="stat-item">
+                        <i class="fas fa-user-check stat-icon-bg"></i>
                         <h2 class="counter" id="dyn-stat3-val" data-target="450">0</h2><span id="dyn-stat3-suf">k</span>
                         <p id="dyn-stat3-lab">Leads Gerados</p>
                     </div>
                 </div>
                 <div class="results-visual">
                     <img src="/public/images/marketing_analytics_dashboard_1775963928053.png" alt="Dashboard de Resultados" class="dashboard-img">
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Casos de <span>Sucesso</span></h2>
+                    <p>Veja como transformamos o faturamento de marcas reais através do nosso método.</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <div class="card-img">
+                            <img src="/public/images/portfolio_1.png" alt="Projeto Ecommerce">
+                            <div class="card-badge">Ecommerce</div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Grife Aura Rio</h3>
+                            <p>E-commerce de moda com aumento de 240% no ROAS em apenas 60 dias de gestão dedicada.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="card-img">
+                            <img src="/public/images/portfolio_2.png" alt="Projeto Imobiliário">
+                            <div class="card-badge">Imobiliário</div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Residencial Jardins SP</h3>
+                            <p>Custo por lead reduzido em 45% para um dos maiores lançamentos imobiliários do ano.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="card-img">
+                            <img src="/public/images/portfolio_3.png" alt="Projeto Educação">
+                            <div class="card-badge">Educação</div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Cursos Avança Brasil</h3>
+                            <p>Escala de lançamentos de infoprodutos com ROI médio de 6.2x em públicos frios.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -223,7 +279,7 @@
                         <div class="author">
                             <div class="author-info">
                                 <strong>Amanda Lima</strong>
-                                <span>Founder, NextHealth</span>
+                                <span>Founder, Clínica Vida Ativa</span>
                             </div>
                         </div>
                     </div>
@@ -255,23 +311,26 @@
             <div class="container">
                 <div class="method-content">
                     <h2>O Método <span>AURA</span></h2>
-                    <div class="steps">
-                        <div class="step">
-                            <span class="step-num">01</span>
-                            <h3>Diagnóstico & Auditoria</h3>
-                            <p>Analisamos cada gargalo do seu funil atual para identificar onde você está perdendo dinheiro.</p>
+                        <div class="steps">
+                            <div class="step">
+                                <i class="fas fa-microscope step-icon"></i>
+                                <span class="step-num">01</span>
+                                <h3>Diagnóstico & Auditoria</h3>
+                                <p>Analisamos cada gargalo do seu funil atual para identificar onde você está perdendo dinheiro.</p>
+                            </div>
+                            <div class="step">
+                                <i class="fas fa-magic step-icon"></i>
+                                <span class="step-num">02</span>
+                                <h3>Implementação Estratégica</h3>
+                                <p>Subimos as campanhas e landing pages com foco total em conversão imediata.</p>
+                            </div>
+                            <div class="step">
+                                <i class="fas fa-chart-pie step-icon"></i>
+                                <span class="step-num">03</span>
+                                <h3>Escala Analítica</h3>
+                                <p>Com dados em mãos, escalamos o que funciona e eliminamos o desperdício.</p>
+                            </div>
                         </div>
-                        <div class="step">
-                            <span class="step-num">02</span>
-                            <h3>Implementação Estratégica</h3>
-                            <p>Subimos as campanhas e landing pages com foco total em conversão imediata.</p>
-                        </div>
-                        <div class="step">
-                            <span class="step-num">03</span>
-                            <h3>Escala Analítica</h3>
-                            <p>Com dados em mãos, escalamos o que funciona e eliminamos o desperdício.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -361,7 +420,23 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent (LGPD) -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Utilizamos cookies para personalizar sua experiência e analisar nosso tráfego de acordo com a LGPD. Ao continuar, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
+        <button id="btn-accept-cookies" class="btn btn-primary btn-sm">Aceitar e Blindar</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="/public/js/main.js"></script>
+    <script>
+        document.getElementById('btn-accept-cookies').addEventListener('click', function() {
+            localStorage.setItem('aura_lgpd', 'accepted');
+            document.getElementById('cookie-banner').style.display = 'none';
+        });
+        
+        if(localStorage.getItem('aura_lgpd')) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

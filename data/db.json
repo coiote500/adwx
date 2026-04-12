@@ -1,11 +1,11 @@
 {
   "site": {
-    "name": "AURA DIGITAL",
+    "name": "AURA ELITE",
     "themeColor": "#050505"
   },
   "hero": {
     "badge": "Agência de Performance #1",
-    "title": "Escalamos sua empresa com <span>Tráfego Digital</span> de Elite",
+    "title": "AURA ELITE",
     "description": "Não entregamos apenas métricas vaidosas. Entregamos lucro real através de estratégias agressivas de tráfego pago, SEO e automação de vendas.",
     "cta_primary": "Quero Escalar Agora",
     "cta_secondary": "Ver Nossos Resultados",
@@ -23,14 +23,22 @@
       "icon": "fas fa-ad",
       "title": "Tráfego Pago",
       "description": "Gestão profissional em Google Ads e Meta Ads focada em ROAS positivo e escala sustentável.",
-      "features": ["Otimização Diária", "Públicos de Alta Conversão", "Segmentação de Elite"]
+      "features": [
+        "Otimização Diária",
+        "Públicos de Alta Conversão",
+        "Segmentação de Elite"
+      ]
     },
     {
       "id": 2,
       "icon": "fas fa-rocket",
       "title": "Funis de Vendas",
       "description": "Criação de ecossistemas completos que transformam desconhecidos em clientes apaixonados.",
-      "features": ["Landing Pages de Alta Conversão", "Email Marketing & CRM", "Automação de WhatsApp"],
+      "features": [
+        "Landing Pages de Alta Conversão",
+        "Email Marketing & CRM",
+        "Automação de WhatsApp"
+      ],
       "featured": true
     },
     {
@@ -38,13 +46,32 @@
       "icon": "fas fa-search",
       "title": "SEO & Branding",
       "description": "Posicionamos sua marca no topo do Google e criamos uma autoridade inabalável no mercado.",
-      "features": ["SEO On-Page & Off-Page", "Estratégia de Conteúdo", "Identidade Visual Premium"]
+      "features": [
+        "SEO On-Page & Off-Page",
+        "Estratégia de Conteúdo",
+        "Identidade Visual Premium"
+      ]
     }
   ],
   "statistics": [
-    { "id": 1, "target": 150, "suffix": "+", "label": "Empresas Escaladas" },
-    { "id": 2, "target": 12, "suffix": "M", "label": "Investidos em Ads" },
-    { "id": 3, "target": 450, "suffix": "k", "label": "Leads Gerados" }
+    {
+      "id": 1,
+      "target": 150,
+      "suffix": "+",
+      "label": "Empresas Escaladas"
+    },
+    {
+      "id": 2,
+      "target": 12,
+      "suffix": "M",
+      "label": "Investidos em Ads"
+    },
+    {
+      "id": 3,
+      "target": 450,
+      "suffix": "k",
+      "label": "Leads Gerados"
+    }
   ],
   "testimonials": [
     {

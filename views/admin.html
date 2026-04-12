@@ -78,6 +78,26 @@
         .table-admin th { text-align: left; padding: 1rem; color: var(--text-muted); border-bottom: 1px solid var(--glass-border); }
         .table-admin td { padding: 1rem; border-bottom: 1px solid var(--glass-border); }
         .msg-preview { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.85rem; }
+        
+        /* Mobile Admin Responsiveness */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1.5rem;
+                border-right: none;
+                border-bottom: 1px solid var(--glass-border);
+            }
+            .admin-nav { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+            .admin-nav li { margin-bottom: 0; flex: 1 1 calc(50% - 0.5rem); }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .edit-card { padding: 1.5rem; }
+            .save-bar { bottom: 1rem; right: 1rem; left: 1rem; justify-content: center; }
+            .table-admin { display: block; overflow-x: auto; }
+        }
     </style>
 </head>
 <body>
@@ -193,7 +213,8 @@
 
             // Leads
             const leadsBody = document.getElementById('leads-body');
-            leadsBody.innerHTML = fullData.contacts.reverse().map(c => `
+            const contacts = fullData.contacts || [];
+            leadsBody.innerHTML = [...contacts].reverse().map(c => `
                 <tr>
                     <td>${c.date}</td>
                     <td>${c.name}<br><small>${c.email}</small></td>

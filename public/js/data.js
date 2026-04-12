@@ -7,9 +7,14 @@ export async function initData() {
         // Site Branding
         const logos = document.querySelectorAll('.logo-text');
         logos.forEach(l => {
-            const span = l.querySelector('span');
-            l.textContent = data.site.name.split(' ')[0] + ' ';
-            l.appendChild(span);
+            const parts = data.site.name.split(' ');
+            const firstWord = parts.shift();
+            const restWord = parts.join(' ');
+            
+            // Only update if it's the main site logo, not the admin panel logo
+            if (restWord && !l.innerText.includes('PANEL')) {
+                l.innerHTML = `${firstWord}<span>${restWord}</span>`;
+            }
         });
 
         // Hero
